@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/beige">
+
+    <TextView
+        android:id="@+id/bejelentkezes_cime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bejelentkezes_cime"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20pt"
+        android:layout_marginRight="20pt"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="20pt"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20pt"
+        android:ems="10"
+        android:hint="@string/felhasznalonev"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="0dp"
+        android:imeOptions="actionDone"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20pt"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="0dp"
+        android:imeOptions="actionDone"/>
+
+    <EditText
+        android:id="@+id/editTextpassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/jelszo"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginRight="20pt"
+        android:layout_marginLeft="20pt"
+        android:imeOptions="actionDone"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="170dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:onClick="bejelentkezes"
+        android:text="@string/bejelentkezes"
+        app:layout_constraintVertical_bias="0.237"
+        android:layout_marginRight="20pt"
+        android:layout_marginLeft="20pt"
+        android:backgroundTint="@color/burgundi"/>
+
+    <Button
+        android:layout_width="170dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="20pt"
+        android:layout_marginRight="20pt"
+        android:backgroundTint="@color/burgundi"
+        android:onClick="register"
+        android:text="@string/regisztracio_gomb"
+        app:layout_constraintTop_toBottomOf="@id/loginButton"
+        app:layout_constraintVertical_bias="0.237" />
+
+</LinearLayout>

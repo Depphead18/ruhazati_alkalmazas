@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ruházati webshop</string>
+    <string name="felhasznalonev">Felhasználónév</string>
+    <string name="jelszo">Jelszó</string>
+    <string name="bejelentkezes">Bejelentkezés</string>
+    <string name="bejelentkezes_cime">Bejelentkezés</string>
+    <string name="regisztracio_gomb">Regisztráció</string>
+    <string name="reg_cime">Regisztráció</string>
+    <string name="email">E-mail cím</string>
+    <string name="kijelentkezes">Kijelentkezés</string>
+
+</resources>
