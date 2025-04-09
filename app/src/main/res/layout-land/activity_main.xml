@@ -21,7 +21,7 @@
         android:textSize="20pt"
         android:layout_marginRight="20pt"
         android:layout_marginLeft="20pt"
-        android:layout_marginTop="20pt"
+        android:layout_marginTop="20dp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -63,27 +63,32 @@
         android:layout_marginLeft="20pt"
         android:imeOptions="actionDone"/>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="170dp"
-        android:layout_height="65dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:onClick="bejelentkezes"
-        android:text="@string/bejelentkezes"
-        app:layout_constraintVertical_bias="0.237"
-        android:layout_marginRight="20pt"
         android:layout_marginLeft="20pt"
-        android:backgroundTint="@color/burgundi"/>
+        android:layout_marginRight="20pt">
 
-    <Button
-        android:layout_width="170dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="20pt"
-        android:layout_marginRight="20pt"
-        android:backgroundTint="@color/burgundi"
-        android:onClick="register"
-        android:text="@string/regisztracio_gomb"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        app:layout_constraintVertical_bias="0.237" />
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="bejelentkezes"
+            android:text="@string/bejelentkezes"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="register"
+            android:text="@string/regisztracio_gomb"/>
+    </LinearLayout>
 
 </LinearLayout>

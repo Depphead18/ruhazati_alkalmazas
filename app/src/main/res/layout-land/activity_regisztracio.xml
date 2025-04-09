@@ -13,16 +13,16 @@
         android:id="@+id/reg_cime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20pt"
         android:text="@string/reg_cime"
+        android:textColor="@color/black"
+        android:textSize="20pt"
         app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20pt"
-        android:layout_marginRight="20pt"
-        android:layout_marginLeft="20pt"
-        android:layout_marginTop="20pt"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextUserName"
@@ -50,42 +50,70 @@
         tools:layout_editor_absoluteX="0dp"
         android:imeOptions="actionDone"/>
 
-    <EditText
-        android:id="@+id/editTextpassword"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="@string/jelszo"
-        android:inputType="textPassword"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="0pt"
+        android:layout_marginEnd="00pt">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/editTextPassword"
+            android:ems="10"
+            android:hint="@string/jelszo"
+            android:inputType="textPassword"
+            android:layout_marginTop="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_marginStart="20pt"
+            android:imeOptions="actionDone"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:id="@+id/editTextPasswordAgain"
+            android:ems="10"
+            android:hint="@string/jelszo_ujjra"
+            android:inputType="textPassword"
+            android:layout_marginTop="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_marginEnd="20pt"
+            android:imeOptions="actionDone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginRight="20pt"
         android:layout_marginLeft="20pt"
-        android:imeOptions="actionDone"/>
+        android:layout_marginRight="20pt">
 
-    <Button
-        android:layout_width="170dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="20pt"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20pt"
-        android:backgroundTint="@color/burgundi"
-        android:onClick="register"
-        android:text="@string/regisztracio_gomb"
-        app:layout_constraintTop_toBottomOf="@id/editTextpassword"
-        app:layout_constraintVertical_bias="0.237"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="register"
+            android:text="@string/regisztracio_gomb"/>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="170dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="20pt"
-        android:layout_marginRight="20pt"
-        android:backgroundTint="@color/burgundi"
-        android:onClick="bejelentkezes"
-        android:text="@string/bejelentkezes"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        app:layout_constraintVertical_bias="0.237"/>
-
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="bejelentkezes"
+            android:text="@string/bejelentkezes"/>
+    </LinearLayout>
 
 </LinearLayout>
