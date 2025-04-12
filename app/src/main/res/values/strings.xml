@@ -8,5 +8,12 @@
     <string name="reg_cime">Regisztráció</string>
     <string name="email">E-mail cím</string>
     <string name="kijelentkezes">Kijelentkezés</string>
+    <string name="jelszo_ujjra">Jelszó újra</string>
+    <string name="udv">Üdvözöljük alkalmazásunkban!</string>
+    <string name="vasarlas">Ruhákban gazdag vásárlást kívánunk!</string>
+    <string name="vasarlas_gomb">Vásárlás</string>
+    <string name="kinalat">Kínálatunk</string>
+    <string name="product_description">Termék leíráa</string>
+    <string name="default_web_client_id">206750863000-q3gvahk8q1g50vlpmhmulujjuvbevme2.apps.googleusercontent.com.apps.googleusercontent.com</string>
 
 </resources>

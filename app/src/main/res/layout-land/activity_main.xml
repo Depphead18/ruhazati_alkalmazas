@@ -79,7 +79,8 @@
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/burgundi"
             android:onClick="bejelentkezes"
-            android:text="@string/bejelentkezes"/>
+            android:text="@string/bejelentkezes"
+            android:textColor="@color/white"/>
 
         <Button
             android:layout_width="0dp"
@@ -88,7 +89,8 @@
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/burgundi"
             android:onClick="register"
-            android:text="@string/regisztracio_gomb"/>
+            android:text="@string/regisztracio_gomb"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </LinearLayout>

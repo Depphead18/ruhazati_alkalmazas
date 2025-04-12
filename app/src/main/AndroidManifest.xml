@@ -13,10 +13,19 @@
         android:theme="@style/Theme.RuházatiWebshop"
         tools:targetApi="31">
         <activity
+            android:name=".RuhaReszletekActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RuhalistaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FooldalActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisztracioActivty"
+            android:name=".RegisztracioActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

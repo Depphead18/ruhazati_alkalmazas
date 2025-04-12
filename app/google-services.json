@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206750863000",
+    "project_id": "ruha-webshop",
+    "storage_bucket": "ruha-webshop.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206750863000:android:26adbf616e9ed03b734aed",
+        "android_client_info": {
+          "package_name": "com.example.ruhzatiwebshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqfepeSq9egz2sFEBey5B0er2HUr_h8AQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
