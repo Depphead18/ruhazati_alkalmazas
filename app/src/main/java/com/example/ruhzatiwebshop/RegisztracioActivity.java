@@ -71,10 +71,6 @@ public class RegisztracioActivity extends AppCompatActivity {
 
     }
 
-    public void cancel(View view) {
-        finish();
-    }
-
     public void backToLogin(View view) {
         Log.d("asd", "asd");
         Intent intent = new Intent(this, MainActivity.class);

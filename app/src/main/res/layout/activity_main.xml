@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bejelentkezes_cime"
-            app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
+            app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -23,12 +23,12 @@
 
 
         <EditText
-            android:id="@+id/editTextUserName"
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="@string/felhasznalonev"
-            android:inputType="text"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.396"
@@ -44,7 +44,7 @@
             android:hint="@string/jelszo"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
             app:layout_constraintVertical_bias="0.07"
             tools:layout_editor_absoluteX="30dp"
             android:layout_marginRight="30dp"
@@ -52,7 +52,7 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="157dp"
+            android:layout_width="140dp"
             android:layout_height="62dp"
             android:backgroundTint="@color/burgundi"
             android:onClick="bejelentkezes"
@@ -66,22 +66,10 @@
             android:textColor="@color/white"/>
 
 
-        <!--<Button
-            android:id="@+id/googleSignInButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Bejelentkezés E-Mail"
-            android:onClick="bejelentkezes"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />-->
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="157dp"
+            android:layout_width="140dp"
             android:layout_height="62dp"
             android:backgroundTint="@color/burgundi"
             android:onClick="register"
@@ -98,8 +86,10 @@
             android:id="@+id/guestSignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
-            android:backgroundTint="@color/black"
+            android:layout_marginTop="104dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/burgundi"
             android:onClick="loginAsGuest"
             android:text="Vendégként belépés"
             android:textColor="@color/white"

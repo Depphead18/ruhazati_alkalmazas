@@ -3,13 +3,14 @@
 
     <item
         android:id="@+id/menu_fooldal"
+        android:icon="@android:drawable/ic_menu_myplaces"
         android:title="Főoldal"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_ruhalista"
+        android:icon="@android:drawable/ic_menu_gallery"
         android:title="Ruhalista"
-        android:icon="@android:drawable/ic_menu_agenda"
         app:showAsAction="ifRoom" />
 
     <item

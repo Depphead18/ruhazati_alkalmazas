@@ -12,21 +12,4 @@ public class Ruha {
         this.ar = ar;
         this.kepResource = kepResource;
     }
-
-    // Getter metódusok
-    public String getNev() {
-        return nev;
-    }
-
-    public String getLeiras() {
-        return leiras;
-    }
-
-    public int getAr() {
-        return ar;
-    }
-
-    public int getKepResource() {
-        return kepResource;
-    }
 }

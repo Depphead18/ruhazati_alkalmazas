@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,19 +40,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.menu_profile) {
             startActivity(new Intent(this, ProfilActivity.class));
-            Toast.makeText(this, "Fiók funkció készül...", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.menu_fooldal) {
             startActivity(new Intent(this, FooldalActivity.class));
-            Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
             return true;
         }  else if (id == R.id.menu_reg) {
             startActivity(new Intent(this, RegisztracioActivity.class));
-            Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
             return true;
         }  else if (id == R.id.menu_bejelentkezes) {
             startActivity(new Intent(this, MainActivity.class));
-            Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.menu_logout) {
             FirebaseAuth.getInstance().signOut();
