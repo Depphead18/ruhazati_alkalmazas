@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".RegisztracioActivity"
     android:background="@color/beige">
 
     <TextView
@@ -27,9 +27,9 @@
     <EditText
         android:id="@+id/editTextUserName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="20pt"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20pt"
         android:ems="10"
         android:hint="@string/felhasznalonev"
@@ -40,9 +40,9 @@
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="20pt"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20pt"
         android:ems="10"
         android:hint="@string/email"
@@ -60,7 +60,7 @@
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:id="@+id/editTextPassword"
@@ -74,7 +74,7 @@
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:id="@+id/editTextPasswordAgain"
@@ -98,22 +98,24 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/burgundi"
             android:onClick="register"
-            android:text="@string/regisztracio_gomb"/>
+            android:text="@string/regisztracio_gomb"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/burgundi"
-            android:onClick="bejelentkezes"
-            android:text="@string/bejelentkezes"/>
+            android:onClick="backToLogin"
+            android:text="@string/bejelentkezes"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -9,73 +9,92 @@
     android:orientation="vertical"
     android:background="@color/beige">
 
-    <TextView
-        android:id="@+id/bejelentkezes_cime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bejelentkezes_cime"
-        app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="50sp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/bejelentkezes_cime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bejelentkezes_cime"
+            app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="50sp"
+            android:textColor="@color/black"/>
 
 
-    <EditText
-        android:id="@+id/editTextUserName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="@string/felhasznalonev"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"/>
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.396"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="@string/jelszo"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
-        app:layout_constraintVertical_bias="0.07"
-        tools:layout_editor_absoluteX="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"/>
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="@string/jelszo"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+            app:layout_constraintVertical_bias="0.07"
+            tools:layout_editor_absoluteX="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="157dp"
-        android:layout_height="62dp"
-        android:backgroundTint="@color/burgundi"
-        android:onClick="bejelentkezes"
-        android:text="@string/bejelentkezes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.074" />
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="140dp"
+            android:layout_height="62dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="bejelentkezes"
+            android:text="@string/bejelentkezes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.118"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintVertical_bias="0.074"
+            android:textColor="@color/white"/>
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="157dp"
-        android:layout_height="62dp"
-        android:backgroundTint="@color/burgundi"
-        android:onClick="register"
-        android:text="@string/regisztracio_gomb"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.08" />
+
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="140dp"
+            android:layout_height="62dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="register"
+            android:text="@string/regisztracio_gomb"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.881"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintVertical_bias="0.071" />
+
+        <Button
+            android:id="@+id/guestSignInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="104dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/burgundi"
+            android:onClick="loginAsGuest"
+            android:text="Vendégként belépés"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            tools:layout_editor_absoluteX="0dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
