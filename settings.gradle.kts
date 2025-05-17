@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Ruházati webshop"
 include(":app")
- 
