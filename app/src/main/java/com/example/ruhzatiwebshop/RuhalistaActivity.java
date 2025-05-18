@@ -1,5 +1,15 @@
 package com.example.ruhzatiwebshop;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -8,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -88,6 +99,13 @@ public class RuhalistaActivity extends BaseActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
+            }
+        }
+
+
     }
 
     private void betoltRuhakatFirestorebol() {
@@ -105,5 +123,55 @@ public class RuhalistaActivity extends BaseActivity {
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Hiba történt az adatok betöltésekor", Toast.LENGTH_SHORT).show());
+    }
+
+
+
+    // 2 különböző rendszerszolgáltatás (háttér szolgáltatás)
+    private void showNotification(String title, String content) {
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        String channelId = "ruha_webshop_channel";
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Ruha Webshop Értesítések",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        notificationManager.notify(1, builder.build());
+    }
+
+    // pl. valahol, amikor hozzáadsz egy ruhát a kosárhoz:
+    private void addToCart(Ruha ruha) {
+        kosarLista.add(ruha);
+        showNotification("Kosár frissítve", ruha.getNev() + " hozzáadva a kosárhoz.");
+    }
+
+    public void scheduleJob() {
+        ComponentName componentName = new ComponentName(this, MyJobService.class);
+        JobInfo jobInfo = new JobInfo.Builder(123, componentName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY) // kell internet vagy nem
+                .setPersisted(false) // reboot után nem indul újra
+                .setPeriodic(15 * 60 * 1000) // 15 percenként fut (minimális idő)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        int result = jobScheduler.schedule(jobInfo);
+
+        if (result == JobScheduler.RESULT_SUCCESS) {
+            Toast.makeText(this, "JobScheduler ütemezve", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "JobScheduler ütemezése sikertelen", Toast.LENGTH_SHORT).show();
+        }
     }
 }
