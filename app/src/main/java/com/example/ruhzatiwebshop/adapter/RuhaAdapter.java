@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +50,12 @@ public class RuhaAdapter extends RecyclerView.Adapter<RuhaAdapter.RuhaViewHolder
     @Override
     public void onBindViewHolder(@NonNull RuhaViewHolder holder, int position) {
         Ruha ruha = ruhaLista.get(position);
+
+        // Animáció betöltése az anim mappából
+        Animation fadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+
+        // Animáció indítása az egyes kártyán (listaelemen)
+        holder.itemView.startAnimation(fadeIn);
 
         holder.ruhaNev.setText(ruha.getNev());
         Glide.with(context).load(ruha.getKep()).into(holder.ruhaKep);

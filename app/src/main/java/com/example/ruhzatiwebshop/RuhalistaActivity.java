@@ -11,6 +11,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.example.ruhzatiwebshop.adapter.RuhaAdapter;
@@ -120,6 +122,9 @@ public class RuhalistaActivity extends BaseActivity {
                     }
                     adapter = new RuhaAdapter(this, ruhaLista);
                     recyclerView.setAdapter(adapter);
+
+                    //Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+                    //recyclerView.startAnimation(fadeIn);
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Hiba történt az adatok betöltésekor", Toast.LENGTH_SHORT).show());
