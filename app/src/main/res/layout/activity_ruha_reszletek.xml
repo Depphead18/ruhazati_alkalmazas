@@ -1,98 +1,138 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@color/white">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/burgundi"
+        android:titleTextColor="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-        <ImageView
-            android:id="@+id/ruhaKep"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/superthumb" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="16dp"
+        android:background="@color/beige">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingStart="16dp">
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ruhaKep"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:contentDescription="Ruha képe"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:id="@+id/ruhaNev"
-                android:text="Fehér blúz"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/black"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/ruhaAr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/ruhaLeiras"
-                android:text="Elegáns pamut blúz irodába vagy hétköznapokra."
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"/>
 
+            <!-- Szín sor -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp">
 
-                <Button
-                    android:id="@+id/minusButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="@color/burgundi"
-                    android:minWidth="0dp"
-                    android:text="-"
-                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Szín: "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/mennyisegText"
-                    android:text="1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:textColor="@color/black" />
-
-                <Button
-                    android:id="@+id/plusButton"
-                    android:text="+"
-                    android:textColor="@color/white"
-                    android:minWidth="0dp"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="@color/burgundi"/>
+                    android:id="@+id/ruhaSzin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
             </LinearLayout>
+
+            <!-- Márka sor -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                >
+                android:layout_marginTop="8dp">
 
-                <Button
-                    android:id="@+id/kosarbaButton"
-                    android:text="Kosárba"
-                    android:backgroundTint="@color/burgundi"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"/>
+                    android:text="Márka: "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/ruhaMarka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
             </LinearLayout>
+
+            <!-- Típus sor -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Típus: "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/ruhaKategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/kosarbaButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kosárba"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/burgundi"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
         </LinearLayout>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+
+</LinearLayout>

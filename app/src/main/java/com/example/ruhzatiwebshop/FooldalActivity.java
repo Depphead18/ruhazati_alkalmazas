@@ -11,17 +11,22 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 public class FooldalActivity extends BaseActivity {
 
     private static final String LOG_TAG = MainActivity.class.getName();
     private static final int SECRET_KEY = 99;
+    private TextView textViewWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_fooldal);
+
+        textViewWelcome = findViewById(R.id.textViewWelcome);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -33,7 +38,7 @@ public class FooldalActivity extends BaseActivity {
         Button shoppingButton = findViewById(R.id.vasarlas_gomb);
         shoppingButton.setOnClickListener(v -> startShopping(v));
 
-        //ANIMÁCIÓ
+        // ANIMÁCIÓ
         Animation bounce = AnimationUtils.loadAnimation(this, R.anim.bounce_twice);
         shoppingButton.startAnimation(bounce);
     }
@@ -42,6 +47,18 @@ public class FooldalActivity extends BaseActivity {
         Intent intent = new Intent(this, RuhalistaActivity.class);
         intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
+    }
+
+
+
+    // LIFEDYDLE HOOK + ANIMÁCIÓ
+    @Override
+    protected void onResume() {
+        super.onResume();
+        textViewWelcome.animate()
+                .alpha(1f)
+                .setDuration(1000)
+                .start();
     }
 
 
@@ -67,12 +84,6 @@ public class FooldalActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         Log.i(LOG_TAG, "onPause");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(LOG_TAG, "onResume");
     }
 
     @Override

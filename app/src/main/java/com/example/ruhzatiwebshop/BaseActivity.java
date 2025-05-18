@@ -15,13 +15,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+        super.onCreate(savedInstanceState);}
 
     protected void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
+
         }
     }
 
@@ -46,6 +46,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             return true;
         }  else if (id == R.id.menu_reg) {
             startActivity(new Intent(this, RegisztracioActivity.class));
+            return true;
+        }  else if (id == R.id.menu_kosar) {
+            startActivity(new Intent(this, KosarActivity.class));
             return true;
         }  else if (id == R.id.menu_bejelentkezes) {
             startActivity(new Intent(this, MainActivity.class));
