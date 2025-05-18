@@ -53,24 +53,33 @@ public class ProfilActivity extends BaseActivity {
         Button buttonLogout = findViewById(R.id.buttonLogout);
 
         if (currentUser != null) {
-            uid = currentUser.getUid(); // <-- Most már elérhető más metódusokban is
-            db.collection("felhasznalok").document(uid).get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        if (documentSnapshot.exists()) {
-                            String nev = documentSnapshot.getString("nev");
-                            String email = documentSnapshot.getString("email");
+            if (currentUser.isAnonymous()) {
+                // Anoním felhasználó esetén
+                textViewUsername.setText("Név: Anoním");
+                textViewEmail.setText("Email: -");
+                // A törlés gombot akár elrejtheted, mert nincs mit törölni
+                buttonDeleteAccount.setVisibility(View.GONE);
+            } else {
+                // Normál felhasználó: Firestore adatokat betöltjük
+                uid = currentUser.getUid();
+                db.collection("felhasznalok").document(uid).get()
+                        .addOnSuccessListener(documentSnapshot -> {
+                            if (documentSnapshot.exists()) {
+                                String nev = documentSnapshot.getString("nev");
+                                String email = documentSnapshot.getString("email");
 
-                            textViewUsername.setText("Név: " + nev);
-                            textViewEmail.setText("Email: " + email);
-                        } else {
-                            Log.d(LOG_TAG, "A felhasználói dokumentum nem létezik.");
-                            Toast.makeText(this, "Nem található a felhasználói adat!", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(e -> {
-                        Log.e(LOG_TAG, "Hiba a felhasználó adatainak lekérdezésekor", e);
-                        Toast.makeText(this, "Hiba történt az adatok lekérdezésekor!", Toast.LENGTH_SHORT).show();
-                    });
+                                textViewUsername.setText("Név: " + nev);
+                                textViewEmail.setText("Email: " + email);
+                            } else {
+                                Log.d(LOG_TAG, "A felhasználói dokumentum nem létezik.");
+                                Toast.makeText(this, "Nem található a felhasználói adat!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(e -> {
+                            Log.e(LOG_TAG, "Hiba a felhasználó adatainak lekérdezésekor", e);
+                            Toast.makeText(this, "Hiba történt az adatok lekérdezésekor!", Toast.LENGTH_SHORT).show();
+                        });
+            }
         } else {
             Toast.makeText(this, "Nincs bejelentkezett felhasználó", Toast.LENGTH_SHORT).show();
             Log.d(LOG_TAG, "Nincs bejelentkezett felhasználó.");
