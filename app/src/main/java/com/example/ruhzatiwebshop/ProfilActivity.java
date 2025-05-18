@@ -1,7 +1,9 @@
 package com.example.ruhzatiwebshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,7 +13,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfilActivity extends BaseActivity {
@@ -23,6 +24,9 @@ public class ProfilActivity extends BaseActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+
+    private FirebaseUser currentUser;
+    private String uid; // <-- Osztályszintű uid változó
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +47,12 @@ public class ProfilActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
+        Button buttonDeleteAccount = findViewById(R.id.buttonDeleteAccount);
+        Button buttonLogout = findViewById(R.id.buttonLogout);
 
         if (currentUser != null) {
-            String uid = currentUser.getUid();
+            uid = currentUser.getUid(); // <-- Most már elérhető más metódusokban is
             db.collection("felhasznalok").document(uid).get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
@@ -68,5 +74,38 @@ public class ProfilActivity extends BaseActivity {
             Toast.makeText(this, "Nincs bejelentkezett felhasználó", Toast.LENGTH_SHORT).show();
             Log.d(LOG_TAG, "Nincs bejelentkezett felhasználó.");
         }
+
+        buttonLogout.setOnClickListener(v -> {
+            mAuth.signOut();
+            Toast.makeText(ProfilActivity.this, "Sikeres kijelentkezés", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(ProfilActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        });
+
+        buttonDeleteAccount.setOnClickListener(v -> {
+            if (uid != null && currentUser != null) {
+                db.collection("felhasznalok").document(uid)
+                        .delete()
+                        .addOnSuccessListener(aVoid -> {
+                            currentUser.delete()
+                                    .addOnSuccessListener(aVoid1 -> {
+                                        Toast.makeText(ProfilActivity.this, "Fiók sikeresen törölve", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(ProfilActivity.this, RegisztracioActivity.class));
+                                        finish();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(ProfilActivity.this, "Hiba a fiók törlésekor: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    });
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(ProfilActivity.this, "Hiba az adatok törlésekor: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        });
+            } else {
+                Toast.makeText(ProfilActivity.this, "Nem található felhasználó azonosító.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
