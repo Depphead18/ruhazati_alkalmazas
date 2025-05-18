@@ -1,8 +1,4 @@
 package com.example.ruhzatiwebshop;
-
-import static android.content.ContentValues.TAG;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -10,11 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
-
 import com.bumptech.glide.Glide;
 import com.example.ruhzatiwebshop.model.Ruha;
-import com.example.ruhzatiwebshop.module.GlideApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RuhaReszletekActivity extends BaseActivity {

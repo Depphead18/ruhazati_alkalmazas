@@ -7,17 +7,13 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ruhzatiwebshop.adapter.KosarAdapter;
-import com.google.android.material.appbar.MaterialToolbar;
-import com.example.ruhzatiwebshop.adapter.RuhaAdapter;
 import com.example.ruhzatiwebshop.model.Ruha;
-import com.example.ruhzatiwebshop.KosarManager;
 import android.Manifest;
 
 
