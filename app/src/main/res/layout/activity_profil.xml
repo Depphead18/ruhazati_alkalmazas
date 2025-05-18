@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/beige">
 
 
@@ -62,7 +61,7 @@
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/burgundi"
         android:text="Kijelentkezés"
         android:textColor="@color/white"
@@ -71,17 +70,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
     <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/burgundi"
+        android:text="Profil szerkesztése"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogout" />
+
+    <Button
         android:id="@+id/buttonDeleteAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="122dp"
         android:backgroundTint="@color/red"
         android:text="Fiók törlése"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

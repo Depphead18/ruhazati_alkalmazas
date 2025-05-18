@@ -3,6 +3,7 @@ package com.example.ruhzatiwebshop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -107,5 +108,16 @@ public class ProfilActivity extends BaseActivity {
                 Toast.makeText(ProfilActivity.this, "Nem található felhasználó azonosító.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button buttonEditProfile = findViewById(R.id.buttonEditProfile);
+        buttonEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
