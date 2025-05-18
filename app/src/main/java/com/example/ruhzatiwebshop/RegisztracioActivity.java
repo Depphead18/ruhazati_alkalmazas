@@ -111,12 +111,10 @@ public class RegisztracioActivity extends AppCompatActivity {
                             .set(ujFelhasznalo)
                             .addOnSuccessListener(aVoid -> {
                                 Log.d(LOG_TAG, "Felhasználó sikeresen mentve Firestore-ba.");
-                                // Csak ezután navigálunk vissza!
                                 backToLogin(null);
                             })
                             .addOnFailureListener(e -> Log.e(LOG_TAG, "Hiba a felhasználó Firestore-ba mentésekor", e));
                 } else {
-                    Log.d(LOG_TAG, "User wasn't created successfully:", task.getException());
                     Toast.makeText(RegisztracioActivity.this, "User wasn't created successfully.", Toast.LENGTH_LONG).show();
                 }
             }

@@ -29,7 +29,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="28dp"
-            android:contentDescription="Profilkép"
+            android:contentDescription="@string/profilkep"
             android:scaleType="centerCrop"
             android:src="@drawable/pp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Név: "
+            android:text="@string/nev"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,16 +53,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Email: "
+            android:text="@string/emailszoveg"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
 
-        <!-- Logout Button -->
-
-        <!-- Edit Profile Button -->
         <Button
             android:id="@+id/buttonLogout"
             android:layout_width="wrap_content"
@@ -70,13 +67,11 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/burgundi"
-            android:text="Kijelentkezés"
+            android:text="@string/kijelentkezes"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
-
-        <!-- Delete Account Button -->
 
         <Button
             android:id="@+id/buttonEditProfile"
@@ -85,7 +80,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
             android:backgroundTint="@color/burgundi"
-            android:text="Szerkesztés"
+            android:text="@string/szerkesztes"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.499"
@@ -99,7 +94,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
             android:backgroundTint="@color/red"
-            android:text="Törlés"
+            android:text="@string/torles"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.499"

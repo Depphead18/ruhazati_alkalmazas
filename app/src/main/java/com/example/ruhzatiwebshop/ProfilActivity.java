@@ -57,10 +57,9 @@ public class ProfilActivity extends BaseActivity {
                 // Anoním felhasználó esetén
                 textViewUsername.setText("Név: Anoním");
                 textViewEmail.setText("Email: -");
-                // A törlés gombot akár elrejtheted, mert nincs mit törölni
                 buttonDeleteAccount.setVisibility(View.GONE);
             } else {
-                // Normál felhasználó: Firestore adatokat betöltjük
+                // Normál felhasználó
                 uid = currentUser.getUid();
                 db.collection("felhasznalok").document(uid).get()
                         .addOnSuccessListener(documentSnapshot -> {

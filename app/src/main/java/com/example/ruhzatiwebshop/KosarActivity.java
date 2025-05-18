@@ -54,7 +54,7 @@ public class KosarActivity extends BaseActivity {
 
     private void sendOrderConfirmationSMS() {
         try {
-            String phoneNumber = "06123456789";  // ide a címzett telefonszámát írd, vagy dinamikusan add meg
+            String phoneNumber = "06123456789";
             String message = "Köszönjük rendelésed! A csomagod úton van.";
 
             SmsManager smsManager = SmsManager.getDefault();

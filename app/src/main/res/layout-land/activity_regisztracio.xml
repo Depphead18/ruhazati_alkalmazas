@@ -112,6 +112,5 @@
                 android:text="@string/bejelentkezes"
                 android:textColor="@color/white"/>
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

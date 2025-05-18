@@ -26,7 +26,7 @@ public class FooldalActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_fooldal);
 
-        textViewWelcome = findViewById(R.id.textViewWelcome);  // Győződj meg róla, hogy ez az ID létezik az XML-ben!
+        textViewWelcome = findViewById(R.id.textViewWelcome);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

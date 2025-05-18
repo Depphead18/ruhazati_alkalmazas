@@ -1,11 +1,10 @@
 package com.example.ruhzatiwebshop;
 
-import android.util.Log;
-
 import com.example.ruhzatiwebshop.model.Ruha;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 public class KosarManager {
     private static KosarManager instance;
@@ -32,15 +31,7 @@ public class KosarManager {
         return instance;
     }
 
-    public void addRuha(Ruha ruha) {
-        kosarLista.add(ruha);
-    }
-
     public List<Ruha> getKosarLista() {
         return new ArrayList<>(kosarLista);
-    }
-
-    public void clearKosar() {
-        kosarLista.clear();
     }
 }

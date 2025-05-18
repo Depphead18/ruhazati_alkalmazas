@@ -51,19 +51,15 @@ public class RuhaAdapter extends RecyclerView.Adapter<RuhaAdapter.RuhaViewHolder
     public void onBindViewHolder(@NonNull RuhaViewHolder holder, int position) {
         Ruha ruha = ruhaLista.get(position);
 
-        // Animáció betöltése az anim mappából
         Animation fadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in);
 
-        // Animáció indítása az egyes kártyán (listaelemen)
         holder.itemView.startAnimation(fadeIn);
 
         holder.ruhaNev.setText(ruha.getNev());
         Glide.with(context).load(ruha.getKep()).into(holder.ruhaKep);
 
-        // ÁR beállítása (EZ HIÁNYZOTT)
         holder.ruhaAr.setText(ruha.getAr() + " Ft");
 
-        // kattintás az itemen (kártyán)
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RuhaReszletekActivity.class);
             intent.putExtra("ruhaId", ruha.getId());  // csak az ID-t adjuk át

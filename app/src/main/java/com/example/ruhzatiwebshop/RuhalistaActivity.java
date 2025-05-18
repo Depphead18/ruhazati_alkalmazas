@@ -1,7 +1,5 @@
 package com.example.ruhzatiwebshop;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.job.JobInfo;
@@ -11,8 +9,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.example.ruhzatiwebshop.adapter.RuhaAdapter;
@@ -46,10 +42,6 @@ public class RuhalistaActivity extends BaseActivity {
     private List<Ruha> ruhaLista = new ArrayList<>();
     private RecyclerView recyclerView;
     private RuhaAdapter adapter;
-
-    private List<Ruha> kosarLista = new ArrayList<>();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,8 +98,6 @@ public class RuhalistaActivity extends BaseActivity {
                 requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
             }
         }
-
-
     }
 
     private void betoltRuhakatFirestorebol() {
@@ -122,14 +112,10 @@ public class RuhalistaActivity extends BaseActivity {
                     }
                     adapter = new RuhaAdapter(this, ruhaLista);
                     recyclerView.setAdapter(adapter);
-
-                    //Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-                    //recyclerView.startAnimation(fadeIn);
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Hiba történt az adatok betöltésekor", Toast.LENGTH_SHORT).show());
     }
-
 
 
     // 2 különböző rendszerszolgáltatás (háttér szolgáltatás)
@@ -156,18 +142,12 @@ public class RuhalistaActivity extends BaseActivity {
         notificationManager.notify(1, builder.build());
     }
 
-    // pl. valahol, amikor hozzáadsz egy ruhát a kosárhoz:
-    private void addToCart(Ruha ruha) {
-        kosarLista.add(ruha);
-        showNotification("Kosár frissítve", ruha.getNev() + " hozzáadva a kosárhoz.");
-    }
-
     public void scheduleJob() {
         ComponentName componentName = new ComponentName(this, MyJobService.class);
         JobInfo jobInfo = new JobInfo.Builder(123, componentName)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY) // kell internet vagy nem
-                .setPersisted(false) // reboot után nem indul újra
-                .setPeriodic(15 * 60 * 1000) // 15 percenként fut (minimális idő)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setPersisted(false)
+                .setPeriodic(15 * 60 * 1000)
                 .build();
 
         JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);

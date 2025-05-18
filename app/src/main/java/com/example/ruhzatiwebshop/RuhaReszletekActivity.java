@@ -1,6 +1,5 @@
 package com.example.ruhzatiwebshop;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ public class RuhaReszletekActivity extends BaseActivity {
     private FirebaseFirestore db;
     private TextView nevView, leirasView, arView, szinView, markaView, kategoriaView;
     private ImageView kepView;
-    private Button kosarbaButton;  // Gomb deklarálása
+    private Button kosarbaButton;
     private Ruha jelenlegiRuha;
 
     @Override
@@ -66,8 +65,6 @@ public class RuhaReszletekActivity extends BaseActivity {
                             Glide.with(this)
                                     .load(ruha.getKep())
                                     .into(kepView);
-
-                            Log.d("RuhaReszletekActivity", "Kép URL: " + ruha.getKep());
                         }
                     } else {
                         Toast.makeText(this, "Nem található a ruha adat", Toast.LENGTH_SHORT).show();
