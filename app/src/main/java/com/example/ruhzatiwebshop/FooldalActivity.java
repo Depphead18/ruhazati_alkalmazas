@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 
 public class FooldalActivity extends BaseActivity {
 
@@ -25,7 +26,7 @@ public class FooldalActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_fooldal);
 
-        textViewWelcome = findViewById(R.id.textViewWelcome);
+        textViewWelcome = findViewById(R.id.textViewWelcome);  // Győződj meg róla, hogy ez az ID létezik az XML-ben!
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -38,7 +39,6 @@ public class FooldalActivity extends BaseActivity {
         Button shoppingButton = findViewById(R.id.vasarlas_gomb);
         shoppingButton.setOnClickListener(v -> startShopping(v));
 
-        // ANIMÁCIÓ
         Animation bounce = AnimationUtils.loadAnimation(this, R.anim.bounce_twice);
         shoppingButton.startAnimation(bounce);
     }
@@ -49,18 +49,18 @@ public class FooldalActivity extends BaseActivity {
         startActivity(intent);
     }
 
-
-
-    // LIFEDYDLE HOOK + ANIMÁCIÓ
     @Override
     protected void onResume() {
         super.onResume();
-        textViewWelcome.animate()
-                .alpha(1f)
-                .setDuration(1000)
-                .start();
+        if (textViewWelcome != null) {
+            textViewWelcome.animate()
+                    .alpha(1f)
+                    .setDuration(1000)
+                    .start();
+        } else {
+            Log.e(LOG_TAG, "textViewWelcome is null in onResume");
+        }
     }
-
 
     @Override
     protected void onStart() {
