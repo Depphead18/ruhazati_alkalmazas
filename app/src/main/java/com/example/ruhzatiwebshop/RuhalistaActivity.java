@@ -18,6 +18,14 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+
+import java.util.Collections;
+import java.util.Comparator;
+
+
 public class RuhalistaActivity extends BaseActivity {
     private FirebaseUser user;
     private FirebaseFirestore db;
@@ -52,6 +60,34 @@ public class RuhalistaActivity extends BaseActivity {
         }
 
         betoltRuhakatFirestorebol();
+
+        Spinner sortSpinner = findViewById(R.id.sortSpinner);
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0: // A-Z
+                        Collections.sort(ruhaLista, Comparator.comparing(Ruha::getNev));
+                        break;
+                    case 1: // Z-A
+                        Collections.sort(ruhaLista, (r1, r2) -> r2.getNev().compareTo(r1.getNev()));
+                        break;
+                    case 2: // Legolcsóbb
+                        Collections.sort(ruhaLista, Comparator.comparingInt(Ruha::getAr));
+                        break;
+                    case 3: // Legdrágább
+                        Collections.sort(ruhaLista, (r1, r2) -> Integer.compare(r2.getAr(), r1.getAr()));
+                        break;
+                }
+                if (adapter != null) {
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
     }
 
     private void betoltRuhakatFirestorebol() {

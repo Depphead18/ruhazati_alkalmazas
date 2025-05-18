@@ -52,6 +52,9 @@ public class RuhaAdapter extends RecyclerView.Adapter<RuhaAdapter.RuhaViewHolder
         holder.ruhaNev.setText(ruha.getNev());
         Glide.with(context).load(ruha.getKep()).into(holder.ruhaKep);
 
+        // ÁR beállítása (EZ HIÁNYZOTT)
+        holder.ruhaAr.setText(ruha.getAr() + " Ft");
+
         // kattintás az itemen (kártyán)
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RuhaReszletekActivity.class);
