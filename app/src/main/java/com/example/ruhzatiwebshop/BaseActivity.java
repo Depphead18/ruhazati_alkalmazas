@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -28,8 +29,24 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_nav_menu, menu);
+
+        // Firebase felhasználó lekérése
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            // Bejelentkezett felhasználó - elrejtem a Bejelentkezés és Regisztráció menüpontokat
+            menu.findItem(R.id.menu_bejelentkezes).setVisible(false);
+            menu.findItem(R.id.menu_reg).setVisible(false);
+        } else {
+            // Nem bejelentkezett felhasználó - elrejtem a Profil, Kosár, Kijelentkezés menüpontokat
+            menu.findItem(R.id.menu_profile).setVisible(false);
+            menu.findItem(R.id.menu_kosar).setVisible(false);
+            menu.findItem(R.id.menu_logout).setVisible(false);
+        }
+
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
