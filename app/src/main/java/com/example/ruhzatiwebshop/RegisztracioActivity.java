@@ -19,6 +19,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisztracioActivity extends AppCompatActivity {
 
@@ -93,12 +96,26 @@ public class RegisztracioActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     Log.d(LOG_TAG, "User created successfully");
-                    backToLogin(null);
+
+                    String userId = mAuth.getCurrentUser().getUid();
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                    Map<String, Object> ujFelhasznalo = new HashMap<>();
+                    ujFelhasznalo.put("nev", userName);
+                    ujFelhasznalo.put("email", email);
+
+                    db.collection("felhasznalok")
+                            .document(userId)
+                            .set(ujFelhasznalo)
+                            .addOnSuccessListener(aVoid -> {
+                                Log.d(LOG_TAG, "Felhasználó sikeresen mentve Firestore-ba.");
+                                backToLogin(null);
+                            })
+                            .addOnFailureListener(e -> Log.e(LOG_TAG, "Hiba a felhasználó Firestore-ba mentésekor", e));
                 } else {
-                    Log.d(LOG_TAG, "User was't created successfully:", task.getException());
-                    Toast.makeText(RegisztracioActivity.this, "User was't created successfully:", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisztracioActivity.this, "User wasn't created successfully.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -108,13 +125,8 @@ public class RegisztracioActivity extends AppCompatActivity {
         editor.putString("password", password);
         editor.putString("email", email);
         editor.apply();
-
-
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("SECRET_KEY", 99);
-        startActivity(intent);
-        finish();
     }
+
 
 
 

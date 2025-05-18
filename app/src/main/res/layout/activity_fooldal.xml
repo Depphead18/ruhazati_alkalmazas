@@ -36,22 +36,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.463" />
 
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:layout_marginTop="16dp"
-        android:text="@string/vasarlas"
-        android:textAlignment="center"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        android:text="Üdv újra itt!"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fooldal_cim"
-        app:layout_constraintVertical_bias="0.024"
-        />
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/vasarlas_gomb"
@@ -61,10 +58,10 @@
         android:backgroundTint="@color/burgundi"
         android:onClick="ruhalista"
         android:text="@string/vasarlas_gomb"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.209"
-        android:textColor="@color/white"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome"
+        app:layout_constraintVertical_bias="0.769" />
 </androidx.constraintlayout.widget.ConstraintLayout>

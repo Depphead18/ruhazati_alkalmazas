@@ -15,5 +15,18 @@
     <string name="kinalat">Kínálatunk</string>
     <string name="product_description">Termék leíráa</string>
     <string name="default_web_client_id">206750863000-q3gvahk8q1g50vlpmhmulujjuvbevme2.apps.googleusercontent.com.apps.googleusercontent.com</string>
+    <string name="vendeg">Vendégként belépés</string>
+    <string name="szerkesztes">Profil szerkesztése</string>
+    <string name="torles">Fiók törlése</string>
+    <string name="profilkep">Profilkép</string>
+    <string name="nev">Név:</string>
+    <string name="emailszoveg">Email:</string>
+    <string name="mentes">Mentés</string>
 
+    <string-array name="rendezesi_opciok">
+        <item>A-Z</item>
+        <item>Z-A</item>
+        <item>Legolcsóbb elöl</item>
+        <item>Legdrágább elöl</item>
+    </string-array>
 </resources>

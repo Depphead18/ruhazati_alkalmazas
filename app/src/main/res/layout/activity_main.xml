@@ -21,7 +21,6 @@
             android:textSize="50sp"
             android:textColor="@color/black"/>
 
-
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
@@ -65,8 +64,6 @@
             app:layout_constraintVertical_bias="0.074"
             android:textColor="@color/white"/>
 
-
-
         <Button
             android:id="@+id/registerButton"
             android:layout_width="140dp"
@@ -95,6 +92,4 @@
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
             tools:layout_editor_absoluteX="0dp" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

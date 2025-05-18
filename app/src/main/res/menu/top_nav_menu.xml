@@ -30,6 +30,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_kosar"
+        android:title="Kosár"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_logout"
         android:title="Kijelentkezés"
         android:icon="@android:drawable/ic_lock_power_off"

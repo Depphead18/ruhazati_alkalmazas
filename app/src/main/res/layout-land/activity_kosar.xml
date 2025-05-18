@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/beige"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/burgundi"
+        android:titleTextColor="@color/white"
+        android:title="Kosár"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/kosarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10pt"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+
+    <Button
+        android:id="@+id/vasarlasGomb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vásárlás véglegesítése"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/burgundi"
+        android:layout_margin="16dp" />
+</LinearLayout>

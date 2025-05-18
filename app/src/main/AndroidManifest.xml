@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RuházatiWebshop"
         tools:targetApi="31">
+
+        <service
+            android:name=".MyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
         <activity
             android:name=".RuhaReszletekActivity"
             android:exported="false" />
@@ -27,6 +38,12 @@
         <activity
             android:name=".RegisztracioActivity"
             android:exported="false" />
+        <activity
+            android:name=".KosarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
